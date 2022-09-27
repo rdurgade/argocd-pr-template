@@ -15,7 +15,7 @@ spec:
         app: ${{values.component_id}}
     spec:
       containers:
-      - image: 10.0.0.19:5000/${{values.component_id}}:v0.0.1-14675a6-20220926124956
+      - image: 10.0.0.19:5000/${{values.component_id}}:v0.0.1-3b6f140-20220927182011
         name: ${{values.component_id}}
         ports:
         - containerPort: 8080
