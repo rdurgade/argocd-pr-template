@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${{values.component_id}}
+  namespace: dev-ns
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: ${{values.component_id}}
+  template:
+    metadata:
+      labels:
+        app: ${{values.component_id}}
+    spec:
+      containers:
+      - image: 10.0.0.19:5000/${{values.component_id}}:v0.0.1-14675a6-20220926124956
+        name: ${{values.component_id}}
+        ports:
+        - containerPort: 8080
